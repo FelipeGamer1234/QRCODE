@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Converter texto em QR code</title>
+</head>
+<body>
+	<h1>Converter texto em QR code</h1>
+	<form>
+		<label for="text">Digite o texto que deseja converter em um QR code:</label>
+		<input type="text" id="text" name="text"><br><br>
+		<input type="button" value="Gerar QR code" onclick="generateQRCode()">
+	</form>
+	<br>
+	<img id="qrcode" src="" alt="QR code">
+	<script>
+		function generateQRCode() {
+			var text = document.getElementById("text").value;
+			var qrCodeUrl = "https://chart.googleapis.com/chart?chs=250x250&cht=qr&chl=" + encodeURIComponent(text);
+			document.getElementById("qrcode").src = qrCodeUrl;
+		}
+	</script>
+</body>
+</html>
